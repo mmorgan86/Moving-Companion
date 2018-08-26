@@ -44,7 +44,7 @@ function loadData() {
     })
 
     // WIKIPEDIA AJAX REQUEST
-    let wikiUrl = `http://www.wikipedia.org/w/api.php?action=opensearch&search=${cityStr}&format=json&callback=wikiCallback`
+    let wikiUrl = `http://en.wikipedia.org/w/api.php?action=opensearch&search=${cityStr}&format=json&callback=wikiCallback`
 
     let wikiRequestTimeout = setTimeout(function () {
         $wikiElem.text("failed to get wikipedia resources")
@@ -58,7 +58,7 @@ function loadData() {
             let articleList = response[1]
 
             articleList.forEach(function (article) {
-                let url = `http://en.wikipedia.org/wiki/wiki${article}`
+                let url = `http://en.wikipedia.org/wiki/${article}`
                 $wikiElem.append(`<li><a href="${url}" target="_blank">${article}</a></li>`)
             })
 
